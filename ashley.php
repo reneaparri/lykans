@@ -136,17 +136,15 @@ array_push($mydummy,"frnz2011");
 array_push($mydummy,"van5567");
 
 echo "$White\n------- PHP Ashley Menu --------";
-echo "$White\n[ a ]$Green main <> main rating";
-echo "$White\n[ b ]$Green dummy <> main rating";
-echo "$White\n[ c ]$Green other account rating";
-//echo "$White\n[d]$Green set 4 rating";
-//echo "$White\n[e]$Green set 5 rating";
-echo "$White\n[ d ]$Green add posts";
-echo "$White\n[ e ]$Green add moments";
-echo "$White\n[ f ]$Green check gems";
-echo "$White\n[ g ]$Green harvest gems";
-echo "$White\n[ h ]$Green exit menu";
-echo "$White\n--------------------------\n$Yellow";
+echo "$White\na)$Green main <> main rating";
+echo "$White\nb)$Green dummy <> main rating";
+echo "$White\nc)$Green other account rating";
+echo "$White\nd)$Green add posts";
+echo "$White\ne)$Green add moments";
+echo "$White\nf)$Green check gems";
+echo "$White\ng)$Green harvest gems";
+echo "$White\nh)$Green exit system";
+echo "$White\n--------------------------\n";
 
    $inputtask = readline("Your selection : ");
 
@@ -181,14 +179,13 @@ echo "$White\n--------------------------\n$Yellow";
         harvestgemsmenu($myaccounts, $mydummy, $PhoneID, $PhoneModel);
         mainmenu();
     case "h" :
-        echo "\nthank you";
-        echo "\nscript exits\n\n";
-        echo "$White";
+        echo "\nthank you for using this script";
+        echo "\nsee you next time\n";
+        echo "$White\n";
         exit;  
     default :
 
         @system("clear");
-        echo "$White\n*** Invalid selection ***\n";   
         mainmenu();
 
    } //end of switch..case
@@ -217,10 +214,11 @@ echo "$White";
 echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nCHECK GEMS Menu\n";
-echo "$White\n[ 1 ]$Green main accounts";
-echo "$White\n[ 2 ]$Green dummy accounts";
-echo "$White\n[ 3 ]$Green other account";
-echo "$White\n[ 4 ]$Green back\n\n";
+echo "$White\n1)$Green main accounts";
+echo "$White\n2)$Green dummy accounts";
+echo "$White\n3)$Green other account";
+echo "$White\n4)$Green back to main";
+echo "$White\n-----------------------\n";
 
    $inputtask = readline("Your selection : ");
 
@@ -421,9 +419,10 @@ echo "$White";
 echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nHARVEST GEMS Menu\n";
-echo "$White\n[ 1 ]$Green from dummy accounts";
-echo "$White\n[ 2 ]$Green from other accounts";
-echo "$White\n[ 3 ]$Green back\n\n";
+echo "$White\n1)$Green from dummy accounts";
+echo "$White\n2)$Green from other accounts";
+echo "$White\n3)$Green back to main";
+echo "$White\n-----------------------\n";
 
    $inputtask = readline("Your selection : ");
 
@@ -1051,11 +1050,11 @@ echo "$White";
 echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nAdd $posttype menu ----\n";
-echo "$White\n[ 1 ]$Green main accounts";
-echo "$White\n[ 2 ]$Green dummy accounts";
-echo "$White\n[ 3 ]$Green other account";
-echo "$White\n[ 4 ]$Green back\n\n";
-
+echo "$White\n1)$Green main accounts";
+echo "$White\n2)$Green dummy accounts";
+echo "$White\n3)$Green other account";
+echo "$White\n4)$Green back to main";
+echo "$White\n-----------------------\n";
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
