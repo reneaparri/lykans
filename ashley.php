@@ -336,11 +336,13 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
    //echo "$White----------------------------------\n";
    printf("$White%'-30s\n","");
 
+   $accountnumber=0;
    foreach ($maxaccounts as $activeAcct) {
 
    $devID=$PhoneID[rand(0,9)];
    $DevName=$PhoneModel[rand(0,50)];
 
+   $accountnumber++;
        #Login to each account
    
        $urll = "https://identity.mylykaapps.com/useraccounts/login";
@@ -383,7 +385,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
         $TotalGEMS=getgembalance($bearer);
 
         echo "$White";  
-       printf("%-15s GEMS >$Green %.2f\n",$activeAcct,$TotalGEMS);
+       printf("[%d] %-15s GEMS >$Green %.2f\n",$accountnumber,$activeAcct,$TotalGEMS);
        $total=$total + $TotalGEMS;
    
      } //end of user logged in
@@ -457,7 +459,7 @@ return;
 
        $ScriptName ="Harvest GEMS (c) reneaparri";
        $Web="https://github.com/reneaparri/lyka";
-
+       $accountnumber=0;    
        echo "$White";
        echo "$ScriptName\n";
        echo "$Web\n\n";
@@ -584,6 +586,7 @@ return;
            $recID = $jsonx["data"]["0"]["id"];
            $usernamex = $jsonx["data"]["0"]["userName"];
        
+           $accountnumber++;
            //recipient was validated
            if ($GEMReceiver == $usernamex)
            {
@@ -622,7 +625,7 @@ return;
                //echo$jsonGEM->message;
 
                echo "$White";
-               printf("%-15s GEMS >$Green %.2f >$Cyan sent\n",$activeAcct,$TotalGEMS);
+               printf("[%d] %-15s GEMS >$Green %.2f >$Cyan sent\n",$accountnumber,$activeAcct,$TotalGEMS);
 
                $harvestedgems =$harvestedgems+$TotalGEMS;
             } else {
@@ -805,13 +808,13 @@ echo "$ScriptName\n";
 echo "$Web\n$Yellow\n";
 echo "details have been collected\n";
 echo "let's start rating posts...\n";
-sleep(2);
+sleep(1);
 
 #/////////////////// start rating ////////////////////
 
-echo "\n$White\n";
-echo "Initial GEMS\n";
-checkgems($raters,$mainpassword,$PhoneID, $PhoneModel);
+//echo "\n$White\n";
+//echo "Initial GEMS\n";
+//checkgems($raters,$mainpassword,$PhoneID, $PhoneModel);
 
 
 $noofraters=count($raters);
@@ -825,9 +828,9 @@ foreach ($raters as $currentRater) :  #//raters
     
     $rated++;
 
-    echo "\n$White";
-    printf("%-15s | %s/%s\n","Rater No.",$rated,$noofraters);
-    printf("%-15s | %s\n","Username",$currentRater);
+    //echo "\n$White";
+    //printf("%-15s | %s/%s\n","Rater No.",$rated,$noofraters);
+    //printf("%-15s | %s\n","Username",$currentRater);
 
     
     $urll = "https://identity.mylykaapps.com/useraccounts/login";
@@ -872,7 +875,7 @@ foreach ($raters as $currentRater) :  #//raters
     echo "$Cyan";
     echo "$msgn\n";
 
-    $toratecount=count($acct2rate);
+    $toratecount=count($toRate);
     $donerating=0;
     
     # loop to each account to rate
@@ -984,7 +987,7 @@ foreach ($raters as $currentRater) :  #//raters
                         $PostNum++;
                         $xcount++;
 
-                        sleep(2);
+                        sleep(1);
     
                     } while ($PostNum !=10);
 
@@ -1670,8 +1673,8 @@ function getUserId($rDevID, $mcCookie){
              {"device": {
                  "deviceId": "$devIDx",
                  "deviceImei": "$devIDx",
-                 "deviceModel": "Huawei",
-                 "deviceName": "Huawei",
+                 "deviceModel": "Tecno Spark 7 Pro",
+                 "deviceName": "Tecno Spark 7 Pro",
                  "deviceOs": "Android",
                  "isEmulator": false,
                  "osVersion": "11",
